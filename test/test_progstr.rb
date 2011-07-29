@@ -22,6 +22,16 @@ class TestProgstrRuby < Test::Unit::TestCase
     assert_equal nowMillis, message.to_hash[:time]
   end
 
+  should "get current time if not given" do
+    message = Progstr::LogMessage.new({})
+    assert message.to_hash[:time] > 0, "time not valid"
+  end
+
+  should "get machine name" do
+    message = Progstr::LogMessage.new({})
+    assert message.to_hash[:host].to_s.size > 0, "host name not inferred"
+  end
+
   should "serialize to json" do
     newYear = Time.utc(2011, 1, 1)
     message = Progstr::LogMessage.new :text => "test message", 
