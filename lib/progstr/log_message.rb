@@ -12,7 +12,7 @@ module Progstr
     end
 
     def to_hash
-      {:text => @text, :source => @source, :host => @host, :level => LEVELS[@level], :time => encode_time(@time)}
+      {:text => @text, :source => @source, :host => get_host(@host), :level => LEVELS[@level], :time => encode_time(@time)}
     end
 
     def to_json
@@ -20,7 +20,12 @@ module Progstr
     end
 
     def encode_time(time)
+      time ||= Time.now
       (time.to_f * 1000).to_i
+    end
+
+    def get_host(host)
+      host || Socket.gethostname || ENV["HOST"] || "Unknown"
     end
   end
 end
