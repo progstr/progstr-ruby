@@ -39,7 +39,7 @@ class TestProgstrRuby < Test::Unit::TestCase
       :host => "dev-machine",
       :level => :error,
       :time => newYear
-    expectedJson = "{\"host\":\"dev-machine\",\"time\":1293840000000,\"source\":\"progstr.something\",\"level\":2,\"text\":\"test message\"}"
+    expectedJson = "{\"source\":\"progstr.something\",\"time\":1293840000000,\"host\":\"dev-machine\",\"level\":2,\"text\":\"test message\"}"
     assert_equal expectedJson, MultiJson.encode(message)
   end
 end
