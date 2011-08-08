@@ -3,6 +3,8 @@ module Progstr
     LEVELS = { :info => 0, :warning => 1, :error => 2, :fatal => 3 } 
     LEVELS.default = 0
 
+    attr_reader :text, :source, :host, :level, :time
+
     def initialize(params)
       @text = params[:text]
       @source = params[:source]
