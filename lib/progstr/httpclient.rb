@@ -25,8 +25,6 @@ module Progstr
       end
 
       def headers
-        raise NoApiKeyError if Progstr.api_key.nil?
-
         @headers ||= HEADERS.merge({ "X-Progstr-Token" => Progstr.api_key.to_s })
       end
 

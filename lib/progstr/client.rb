@@ -6,12 +6,22 @@ module Progstr
       pool.schedule do
         begin
           execute(message)
-        rescue => error
+        rescue Timeout::Error, 
+                Errno::EINVAL,
+                Errno::ECONNRESET,
+                Errno::ECONNREFUSED,
+                EOFError,
+                SocketError,
+                Net::HTTPBadResponse,
+                Net::HTTPHeaderSyntaxError,
+                Net::ProtocolError => error
           p "Progstr::Client.send: #{error.message}"
           p error.backtrace.join("\r\n")
         end
       end
     end
+
+    private
 
     def pool
       if (@pool.nil?)
