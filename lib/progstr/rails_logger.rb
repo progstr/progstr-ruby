@@ -1,10 +1,7 @@
 module Progstr
-  class RailsLogger < Logger
+  class RailsLogger < Progstr::Logger
     def initialize
-      device = LoggerDevice.new("Rails")
-      super(device)
-
-      @formatter = device.formatter
+      super("Rails")
     end
   end
 end

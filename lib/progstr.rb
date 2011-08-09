@@ -11,6 +11,7 @@ require "progstr/log_message"
 require "progstr/client"
 require "progstr/httpclient"
 require "progstr/logger_device"
+require "progstr/logger"
 require "progstr/rails_logger"
 
 class NoApiKeyError  < StandardError; end
