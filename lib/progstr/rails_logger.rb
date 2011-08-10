@@ -7,6 +7,10 @@ module Progstr
     def self.start(rails_config)
       rails_config.after_initialize do
         Rails.logger = rails_config.logger = Progstr::RailsLogger.new
+
+        #specific loggers for ActionController and ActiveRecord
+        ActionController::Base.logger = Progstr::Logger.new("ActionController")
+        ActiveRecord::Base.logger = Progstr::Logger.new("ActiveRecord")
       end
     end
   end
