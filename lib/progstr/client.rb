@@ -17,8 +17,8 @@ module Progstr
                 Net::HTTPBadResponse,
                 Net::HTTPHeaderSyntaxError,
                 Net::ProtocolError => error
-          puts "Progstr::Client.send: #{error.message}"
-          puts error.backtrace.join("\r\n")
+          #puts "Progstr::Client.send: #{error.message}"
+          #puts error.backtrace.join("\r\n")
         end
       end
     end
