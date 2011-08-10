@@ -3,7 +3,7 @@ module Progstr
     attr_accessor :host, :path_prefix, :port, :secure, :api_key, :http_open_timeout, :http_read_timeout, :proxy_host, :proxy_port, :proxy_user, :proxy_pass 
 
     def host
-      @host ||= "app.progstr.com"
+      @host ||= "api.progstr.com"
     end
     def port
       @port || 80
