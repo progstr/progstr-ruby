@@ -11,7 +11,9 @@ module Progstr
     end
 
     def write(message)
-      Progstr::Client::send(message)
+      if !message.nil?
+        Progstr::Client::send(message)
+      end
     end
 
     def close
@@ -19,15 +21,20 @@ module Progstr
 
     def formatter
       proc do |severity, datetime, progname, msg|
-        Progstr::LogMessage.new :text => msg,
-          :level => resolve_level(severity),
-          :time => datetime,
-          :source => resolve_source(progname)
+        level = resolve_level(severity)
+        if !level.nil?
+          Progstr::LogMessage.new :text => msg,
+            :level => level,
+            :time => datetime,
+            :source => resolve_source(progname)
+        else
+          nil
+        end
       end
     end
 
     def resolve_level(severity)
-      LEVELS_MAP[severity] || :info
+      LEVELS_MAP[severity]
     end
 
     def resolve_source(progname)
