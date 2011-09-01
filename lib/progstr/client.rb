@@ -34,7 +34,7 @@ module Progstr
     end
 
     def execute(message)
-      json = MultiJson.encode(message)
+      json = MultiJson.encode(message.to_hash)
       Progstr::HttpClient::post("v1/log", json)
     end
   end

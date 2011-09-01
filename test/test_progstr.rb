@@ -40,7 +40,7 @@ class TestProgstrRuby < Test::Unit::TestCase
       :level => :error,
       :time => newYear
 
-    json = MultiJson.encode(message)
+    json = MultiJson.encode(message.to_hash)
     assert_match /"source":"progstr.something"/, json
     assert_match /"host":"dev-machine"/, json
     assert_match /"text":"test message"/, json

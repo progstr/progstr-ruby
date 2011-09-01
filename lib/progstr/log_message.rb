@@ -17,10 +17,6 @@ module Progstr
       {:text => @text, :source => @source, :host => get_host(@host), :level => LEVELS[@level], :time => encode_time(@time)}
     end
 
-    def to_json
-      to_hash.to_json
-    end
-
     def encode_time(time)
       time ||= Time.now
       (time.to_f * 1000).to_i
