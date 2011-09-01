@@ -17,9 +17,9 @@ Jeweler::Tasks.new do |gem|
   gem.name = "progstr-ruby"
   gem.homepage = "http://github.com/progstr/progstr-ruby"
   gem.license = "MIT"
-  gem.summary = %Q{progstr.log Ruby client library}
-  gem.description = %Q{progstr.log application logging service API client library.}
-  gem.email = "hristo@deshev.com"
+  gem.summary = %Q{Progstr Logger -- Ruby client library}
+  gem.description = %Q{Progstr Logger application logging service API client library.}
+  gem.email = "hristo@progstr.com"
   gem.authors = ["Hristo Deshev"]
   # dependencies defined in Gemfile
 end
