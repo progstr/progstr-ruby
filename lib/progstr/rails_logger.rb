@@ -9,8 +9,12 @@ module Progstr
         Rails.logger = rails_config.logger = Progstr::RailsLogger.new
 
         #specific loggers for ActionController and ActiveRecord
-        ActionController::Base.logger = Progstr::Logger.new("ActionController")
-        ActiveRecord::Base.logger = Progstr::Logger.new("ActiveRecord")
+        if defined? ActionController
+          ActionController::Base.logger = Progstr::Logger.new("ActionController")
+        end
+        if defined? ActiveRecord
+          ActiveRecord::Base.logger = Progstr::Logger.new("ActiveRecord")
+        end
       end
     end
   end
