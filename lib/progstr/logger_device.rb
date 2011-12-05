@@ -22,15 +22,23 @@ module Progstr
     def formatter
       proc do |severity, datetime, progname, msg|
         level = resolve_level(severity)
-        Progstr::LogMessage.new :text => msg,
-          :level => resolve_level(severity),
-          :time => datetime,
-          :source => resolve_source(progname)
+        unless level.nil?
+          Progstr::LogMessage.new :text => msg,
+            :level => resolve_level(severity),
+            :time => datetime,
+            :source => resolve_source(progname)
+        else
+          nil
+        end
       end
     end
 
     def resolve_level(severity)
-      LEVELS_MAP[severity] || :info
+      level = LEVELS_MAP[severity]
+      if level.nil? && Progstr.log_debug_events
+        level = :info
+      end
+      level
     end
 
     def resolve_source(progname)
