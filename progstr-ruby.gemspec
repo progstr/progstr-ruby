@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{progstr-ruby}
-  s.version = "1.0.4"
+  s.version = "1.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Hristo Deshev}]
-  s.date = %q{2011-11-07}
+  s.date = %q{2011-12-05}
   s.description = %q{Progstr Logger application logging service API client library.}
   s.email = %q{hristo@progstr.com}
   s.extra_rdoc_files = [
